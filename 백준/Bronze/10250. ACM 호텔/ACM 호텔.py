@@ -4,7 +4,7 @@ for t in range(T):
     H, W, N = map(int,input().split())
 
     cnt = 1
-    
+    cnt_str = str(cnt)
     while 1:
         if N > H:
             N = N - H
