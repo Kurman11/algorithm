@@ -1,9 +1,6 @@
 import sys
 from collections import deque
 a = deque()
-word = list()
-
-
 T = int(input())
 for t in range(T):
     word = list(map(str,sys.stdin.readline().split()))
