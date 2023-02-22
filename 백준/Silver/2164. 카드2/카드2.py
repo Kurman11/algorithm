@@ -6,8 +6,6 @@ for i in range(1,T+1):
 if len(card) != 1:
     while 1:
         card.popleft()
-        if len(card) == 1:
-            break
         card.append(card.popleft())  
         if len(card) == 1:
             break
