@@ -1,6 +1,5 @@
-import sys
-num = list(sys.stdin.readline().strip())
-num1 = num[:]
+num = list(input())
+num1 = num[:] # num의 모든 요소를 복사한다고 하내요 처음 알았어요 ㅎㅎ
 cnt0 = 0
 cnt1 = 0
 
@@ -19,7 +18,7 @@ while 1:
                 cnt1 += 1
                 break
         num[0] = '1'
-        num.append(num.pop(0))
+        num.append(num.pop(0)) # 비효율 적이다고 하셨던거 같은데 일단은 다른게 생각이 안나서 이렇게 풀었습니다.
     if len(num) == num.count('1'):
         break
 
