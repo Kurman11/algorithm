@@ -1,18 +1,21 @@
 import sys
+T = int(input())
+arr = sorted(list(map(int, sys.stdin.readline().split())))
+S = int(input())
 
-if __name__ == '__main__':
-    N = int(input())
-    arr = list(map(int, sys.stdin.readline().split()))
-    X = int(input())
-    arr.sort()
-    left, right = 0, N - 1
-    ans = 0
+start, end = 0, T - 1
+cnt = 0
 
-    while left < right:
-        tmp = arr[left] + arr[right]
-        if tmp == X: ans += 1
-        if tmp < X:
-            left += 1
-            continue
-        right -= 1
-    print(ans)
+while start < end:
+    current_sum = arr[start] + arr[end]
+    
+    if current_sum == S:
+        cnt += 1
+        start += 1
+        end -= 1
+    elif current_sum < S:
+        start += 1
+    else:
+        end -= 1
+
+print(cnt)
