@@ -27,7 +27,7 @@ def solution(rectangle, characterX, characterY, itemX, itemY):
     while q:
         x,y = q.popleft()
         if (x,y) == (ix,iy):
-            answer = (arr[x][y] - 1) // 2
+            answer = arr[x][y] // 2
             break
         for i,j in ((1,0), (0,1), (-1,0), (0,-1)):
             dx , dy = i+x , y+j
