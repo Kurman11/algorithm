@@ -1,15 +1,16 @@
-T = list(input())
-count = 0  
-open_count = 0  
+n = list(input())
+b = 0
+c = 0
+st = []
 
-for i in range(len(T)):
-    if T[i] == '(':
-        open_count += 1
+for i in range(len(n)):
+    if n[i] == '(' :
+        b += 1
     else:
-        open_count -= 1
-        if T[i-1] == '(':  
-            count += open_count
+        b -= 1
+        if n[i-1] == '(':
+            c += b
         else:
-            count += 1
+            c += 1
 
-print(count)
+print(c)
