@@ -1,27 +1,16 @@
-def dp(Day):
-    if Day >= n:
-        return 0
-    if memo[Day] != -1:
-        return memo[Day]
+N = int(input())
+T = [0] * N
+P = [0] * N
 
-    # 선택하는 경우
-    if Day + T[Day][0] <= n:
-        take = T[Day][1] + dp(Day + T[Day][0])
+for i in range(N):
+    T[i], P[i] = map(int, input().split())
+
+
+dp = [0] *(N+1)
+for n in range(N-1, -1, -1):
+    if n+T[n] <= N:
+        dp[n] = max(dp[n+1], dp[n+T[n]]+ P[n])
     else:
-        take = 0
+        dp[n] = dp[n+1]
 
-    # 선택하지 않는 경우
-    skip = dp(Day + 1)
-
-    memo[Day] = max(take, skip)
-    return memo[Day]
-
-n = int(input())
-T = [list(map(int, input().split())) for _ in range(n)]
-
-# 메모이제이션을 위한 배열 초기화
-memo = [-1] * n
-
-# dp 함수를 호출하여 최대 수익 계산
-max_profit = dp(0)
-print(max_profit)
+print(dp[0])
