@@ -1,3 +1,11 @@
-string = input().upper()
+T = list(map(str,input()))
+a = []
 
-print(string)
+for i in T:
+    if i.isupper() == True:
+        a.append(i)
+    else:
+        a.append(i.upper())
+
+rst =''.join(a)
+print(rst)
