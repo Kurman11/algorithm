@@ -1,11 +1,10 @@
-for i in range(10):
-    num = int(input())
-    a,n = map(int,input().split())
+def gop(a, b):
+    if b == M:
+        return a
+    return gop(a * N, b + 1)
 
-    def again(a,n):
-        if n == 0:
-            return 1
-        else:
-            return a*again(a,n-1)
 
-    print(f"#{num} {again(a, n)}")
+for i in range(1, 11):
+    T = int(input())
+    N, M = map(int,input().split())
+    print(f'#{i} {gop(N,1)}')
