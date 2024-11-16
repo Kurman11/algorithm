@@ -1,25 +1,22 @@
+def dfs(c):
+    ans_dfs.append(c)
+    v[c] = 1
+
+    for i in arr[c]:
+        if not v[i]:
+            dfs(i)
+
 T = int(input())
-num = int(input())
+n = int(input())
+arr = [[] for _ in range(T+1)]
 
-graph = [[] for _ in range(T+1)]
-visited = [False] * (T+1)
 
-for _ in range(num):
-    v1,v2 = map(int,input().split())
-    graph[v1].append(v2)
-    graph[v2].append(v1)
+for i in range(n):
+    s, e = map(int,input().split())
+    arr[s].append(e)
+    arr[e].append(s)
 
-def dfs(start):
-    stack =[start]
-    visited[start] = True
-
-    while stack:
-        cur = stack.pop()
-
-        for adj in graph[cur]:
-            if not visited[adj]:
-                visited[adj] = True
-                stack.append(adj)
+ans_dfs = []
+v = [0] * (T+1)
 dfs(1)
-
-print(visited.count(True)-1)
+print(len(ans_dfs)-1)
