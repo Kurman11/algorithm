@@ -1,23 +1,25 @@
-T = int(input())
-stack = []
-result = []
-cur = 1
-flag = 0
-for i in range(T):
-    num = int(input())
-    while cur <= num:
-        stack.append(cur)
-        result.append('+')
-        cur += 1
+n = int(input())
+st = []
+rst = []
+crt = 1
+temp = True
 
-    if stack[-1] == num:
-        stack.pop()
-        result.append('-')
+for i in range(1, n+1):
+    num = int(input())
+    while crt <= num:
+        st.append(crt)
+        rst.append('+')
+        crt += 1
+    
+    if st[-1] == num:
+        st.pop()
+        rst.append('-')
     else:
-        print('NO')
-        flag = 1
+        temp = False
         break
 
-if flag == 0:
-    for i in result:
+if temp == False:
+    print('NO')
+else:
+    for i in rst:
         print(i)
