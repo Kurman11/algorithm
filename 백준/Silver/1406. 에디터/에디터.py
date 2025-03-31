@@ -1,31 +1,17 @@
-word = list(input())
-a = []
-T = int(input())
+left = list(input())
+right = []
+n = int(input())
 
-for _ in range(T):
-    editor = list(map(str,input().split()))
-    if len(editor) == 2:
-        word.append(editor[1])
-    else:
-        if editor[0] == 'L':
-            if len(word) != 0:
-                a.append(word.pop())
-            else:
-                pass 
-        elif editor[0] == 'B':
-            if len(word) != 0:
-                word.pop()
-            else:
-                pass
-        elif editor[0] == 'D':
-            if len(a) != 0:
-                word.append(a.pop())
-            else:
-                pass
+for i in range(n):
+    arr = list(input().split())
+    if arr[0] == 'L' and left:
+        right.append(left.pop())
+    elif arr[0] == 'D' and right:
+        left.append(right.pop())
+    elif arr[0] == 'B' and left:
+        left.pop()
+    elif arr[0] == 'P':
+        left.append(arr[1])
 
-for _ in range(len(a)):
-    word.append(a.pop())
-
-print(''.join(word))
-
-
+ans = left + right[::-1]
+print("".join(ans))
