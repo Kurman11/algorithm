@@ -1,15 +1,18 @@
 def solution(s):
-    a = []
-    
+    left = 0
+    right = 0
     for i in s:
         if i == '(':
-            a.append(i)
-        else:
-            if len(a) == 0:
-                return False
+            left += 1
+        elif i == ')':
+            if left == 0:
+                right += 1
             else:
-                a.pop()
-    if len(a) != 0:
-        return False
-
-    return True
+                left -= 1
+    
+    if left == 0 and right == 0 :    
+        answer = True
+    else:
+        answer = False
+    
+    return answer
