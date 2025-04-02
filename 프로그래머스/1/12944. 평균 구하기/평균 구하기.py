@@ -1,5 +1,7 @@
 def solution(arr):
-    a=len(arr)
-    b = sum(arr)
-    answer = b/a
+    answer = 0
+    for i in arr:
+        answer += i
+    answer = answer / len(arr)
+    
     return answer
