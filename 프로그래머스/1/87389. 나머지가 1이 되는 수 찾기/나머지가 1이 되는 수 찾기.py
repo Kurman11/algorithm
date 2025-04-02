@@ -1,4 +1,8 @@
-def solution(n) :
-    for i in range(2, n) :
-        if n % i == 1 :
-            return i
+def solution(n):
+    cnt = 0
+    while 1:
+        cnt += 1
+        if n % cnt == 1:
+            break
+    answer = cnt
+    return answer
