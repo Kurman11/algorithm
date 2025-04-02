@@ -1,7 +1,13 @@
-def solution(n) :
+def solution(n):
     answer = 0
     n = str(n)
-    for value in n :
-        answer += int(value)
+    
+    for i in n:
+        answer += int(i)
+    
+    
+    
+
+    
 
     return answer
